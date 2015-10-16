@@ -88,7 +88,7 @@ actImpByDate <- group_by(actImputed, date) %>%
         summarise(steps = sum(steps, na.rm = TRUE))
 ````
 
-#### Next, make a histogram of the number of steps taken each day:
+#### *Next, make a histogram of the number of steps taken each day:
 ````{r hgram_stepsimp}
 with(actImpByDate, hist(steps
                         ,col=rgb(1,0,0,0.5)
@@ -99,7 +99,7 @@ with(actImpByDate, hist(steps
 ````
 
 
-#### Overlaying the two histograms allows us to compare them easily:
+#### *Overlaying the two histograms allows us to compare them easily:
 ````{r hgram_stepscomb}
 with(actImpByDate, hist(steps
                         ,col=rgb(1,0,0,0.5)
@@ -128,7 +128,7 @@ legend("topright"
        )
 ````
 
-#### Then, calculate the mean and median number of steps take each day:
+#### *Then, calculate the mean and median number of steps take each day:
 ````{r meanmedianimp}
 meanmedianImp <- summarise(actImpByDate
                            ,dataset = "Imputed"
@@ -136,7 +136,7 @@ meanmedianImp <- summarise(actImpByDate
                            ,median=median(steps))
 ````
 
-#### Displaying both sets of values together, we can easily see that imputing the missing values <u>increases</u> both the mean and the median of the original dataset:
+#### *Displaying both sets of values together, we can easily see that imputing the missing values <u>increases</u> both the mean and the median of the original dataset:
 ````{r meanmediancomb}
 rbind(meanmedian,meanmedianImp)
 ````
